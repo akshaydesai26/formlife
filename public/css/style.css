@@ -1,0 +1,51 @@
+body{
+    background-color: #90dcf9;
+    width:100%;
+}
+.block:hover{
+    box-shadow: 0 2px 20px #333;
+    background-image: linear-gradient(to bottom right, #90dcf9, white);
+    transition: 0.5s;
+}
+
+.block{
+    margin-top:30px; 
+    margin-left:50px;
+    margin-right:40px;
+    
+
+}
+.details{
+    
+    width:100%;
+    text-align: left;
+    padding-left: 10%;
+}
+.txt{
+    width:80%;
+}
+p{
+    margin:0px;
+}
+span{
+    font-weight: bold;
+}
+textarea{
+    margin:20px;
+}
+.btn-default{
+    background-color: #1c32f5;
+    margin:10px;
+    color:white;
+    border: none;
+    border-radius: 30px;
+}
+.sub{
+    margin-right: 5%;
+}
+.rem{
+    position: relative;
+    margin-top: 0px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,25 @@
+{
+  "name": "formlife",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.4",
+    "ejs": "^2.6.1",
+    "express": "^4.17.1",
+    "express-flash": "0.0.2",
+    "express-session": "^1.16.2",
+    "express-sessions": "^1.0.6",
+    "mongoose": "^5.5.11",
+    "nodemailer": "^6.2.1",
+    "nodemailer-mailgun-transport": "^1.4.0"
+  }
+}

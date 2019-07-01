@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <script type='text/javascript'>
+        //var rows = <% JSON.stringify(data)%>
+      </script>
+</head>
+<body>
+   
+        <p><%=messages %></p>
+    <!--<% var rows = JSON.stringify(data)%>
+    <p><%-JSON.stringify(data)%></p>
+    <p><%-rows%></p>-->
+
+    <table>
+    <thead>
+        <tr>
+          <!--<th>Name</th>
+          <th>Email</th>
+          <th>Text</th>-->
+
+        </tr>
+      </thead>
+
+      <tbody></tbody>
+    </table>
+    <div class="container">
+        <div class="row">
+        <% for(var i=0; i < data.length; i++) { %>
+       <div class="col-md-3 text-center block">
+        <div class="details">
+         <p><span>Name: </span><%= data[i].name %></p>
+         <p class='eid'><!--<span>Email: </span>--><%= data[i].email %></p>
+         <p class='text'><span>Message: </span><br><%= data[i].text %></p>
+        </div>
+         
+         <!--<td><button id="send">send</button></td>
+         <td><button id="rem">remove</button></td>-->
+         <div class="form1">
+        <form class="main" name="f1" method="post" action="/emailsent">
+            <input name="id" class='id' value="<%= data[i]._id %>" style="display: none">
+            <textarea class="txt" name="txt" id="txt" cols="30" rows="10"></textarea><br>
+            <input type="email" name="emailform" id="emailform" class="emailform"  style="display: none">
+            <input class="sub btn-default" id= "sub" type='submit' value='submit' onclick="f1.action='/emailsent'; return true;">
+            
+        </form></div>
+        <div class="form2">
+         <form name="f2" method="post" action="/removed">
+           <!-- <textarea display="none" name="txt" id="txt" cols="30" rows="10"></textarea>-->
+           <input name="id" class='id' value="<%= data[i]._id %>" style="display: none">
+           <input class="rem btn-default" id= "rem" type='submit' value='remove' onclick="f1.action='/removed';  return true;">
+        </form></div>
+    </div>
+    <% } %>
+      
+    </div></div>
+      
+      <script>
+          $(document).ready(function(){
+             $('.test').hover(function(){
+                 $('.test').hide();
+             })
+              /*$('button').click(function(e){
+                  e.preventDefault();
+                  if($(this).text()=='send'){
+                      var data={
+                          sent:'yes'
+                      };
+                    $.post('/admin1', data, function () {
+                      console.log('server received data1');
+                  }); 
+                  }else{
+                    alert($(this).text());
+                  }
+              });
+              $('.emailform').val($(this).parent().name);*/
+              $('.sub').hover(function(){
+                  //alert($(this).parent().parent().parent().children(".eid").val());
+                  //alert($(this).parent().parent().parent().children().children(".eid").text());
+                  var eid=$(this).parent().parent().parent().children().children(".eid").text();
+                  $('.emailform').val(eid); //all boxes will have same id when hovered, dsnt matter
+              });
+
+
+          });
+
+          /*$(document).ready(function(){
+            $('.main').on('submit',(e)=>{
+            e.preventDefault();
+             const email=$('.emailform').val().trim();
+            //const subject=$('#subject').val().trim();
+            const txt=$('.text').val().trim();
+
+        const data={
+        email,
+        text
+        };
+
+         $.post('/email',data,function(){ 
+            console.log('server received data');
+         }) ; 
+
+     });
+    });*/
+      </script>
+
+</body>
+</html>
